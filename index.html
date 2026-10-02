@@ -6,72 +6,167 @@
     <title>U.G. Nimesha Thamali | Portfolio</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: #0d1117; color: #c9d1d9; line-height: 1.6; }
-        .container { max-width: 900px; margin: auto; padding: 40px 20px; }
-        .header { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 15px; margin-bottom: 40px; }
-        .header h1 { font-size: 42px; color: #fff; margin-bottom: 10px; }
-        .header p { font-size: 18px; color: #e0e0e0; }
-        .section { background: #161b22; padding: 30px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #30363d; }
-        .section h2 { color: #58a6ff; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #30363d; padding-bottom: 10px; }
-        .skills span { display: inline-block; background: #21262d; color: #58a6ff; padding: 8px 16px; border-radius: 20px; margin: 5px; font-size: 14px; border: 1px solid #30363d; }
-        .project { background: #21262d; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #58a6ff; }
-        .project h3 { color: #fff; margin-bottom: 8px; }
-        .project p { color: #8b949e; font-size: 14px; }
-        .project a { color: #58a6ff; text-decoration: none; font-size: 14px; }
-        .contact a { display: inline-block; background: #238636; color: #fff; padding: 10px 25px; border-radius: 8px; text-decoration: none; margin: 5px; }
-        .contact a:hover { background: #2ea043; }
+        body { background: #0a0a0f; color: #e6e6e6; line-height: 1.6; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; background: rgba(10, 10, 15, 0.95); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #1a1a2e; }
+        nav .logo { font-size: 22px; font-weight: 700; color: #a855f7; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { color: #e6e6e6; text-decoration: none; font-size: 15px; transition: color 0.3s; }
+        nav ul li a:hover { color: #a855f7; }
+        .btn-cv { background: #a855f7; color: #fff; padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s; }
+        .btn-cv:hover { background: #9333ea; }
+
+        .hero { display: flex; align-items: center; justify-content: space-between; padding: 80px 60px; max-width: 1200px; margin: auto; gap: 60px; }
+        .hero-left { flex: 1; }
+        .badge { display: inline-block; background: #1a1a2e; color: #a855f7; padding: 8px 18px; border-radius: 30px; font-size: 13px; margin-bottom: 25px; border: 1px solid #2a2a4e; }
+        .badge::before { content: "🟢 "; }
+        .hero-left h1 { font-size: 55px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
+        .hero-left h1 span { color: #a855f7; }
+        .hero-left p { font-size: 17px; color: #b0b0c0; margin-bottom: 30px; max-width: 500px; }
+        .hero-buttons { display: flex; gap: 15px; margin-bottom: 25px; }
+        .btn-primary { background: linear-gradient(135deg, #a855f7, #ec4899); color: #fff; padding: 14px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.3s; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4); }
+        .btn-secondary { background: transparent; color: #e6e6e6; padding: 14px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 15px; border: 1px solid #2a2a4e; transition: 0.3s; }
+        .btn-secondary:hover { border-color: #a855f7; color: #a855f7; }
+        .social-links { display: flex; gap: 20px; }
+        .social-links a { color: #b0b0c0; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .social-links a:hover { color: #a855f7; }
+
+        .hero-right { position: relative; }
+        .profile-circle { width: 320px; height: 320px; border-radius: 50%; border: 4px solid #a855f7; overflow: hidden; box-shadow: 0 0 60px rgba(168, 85, 247, 0.3); }
+        .profile-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .badge-floating { position: absolute; background: #1a1a2e; color: #a855f7; padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 600; border: 1px solid #2a2a4e; }
+        .badge-top { top: 20px; right: -20px; }
+        .badge-bottom { bottom: 20px; left: -20px; }
+
+        .section { max-width: 1200px; margin: auto; padding: 60px; }
+        .section h2 { font-size: 32px; color: #fff; margin-bottom: 30px; }
+        .section h2 span { color: #a855f7; }
+        
+        .card { background: #12121e; padding: 25px; border-radius: 15px; border: 1px solid #1a1a2e; margin-bottom: 20px; transition: 0.3s; }
+        .card:hover { border-color: #a855f7; transform: translateY(-3px); }
+        .card h3 { color: #fff; margin-bottom: 10px; font-size: 20px; }
+        .card p { color: #b0b0c0; font-size: 15px; }
+        .card a { color: #a855f7; text-decoration: none; font-size: 14px; }
+
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+        .skills-grid span { background: #1a1a2e; color: #a855f7; padding: 10px 20px; border-radius: 25px; font-size: 14px; border: 1px solid #2a2a4e; transition: 0.3s; }
+        .skills-grid span:hover { background: #a855f7; color: #fff; }
+
+        .contact-links { display: flex; gap: 15px; flex-wrap: wrap; }
+        .contact-links a { background: #1a1a2e; color: #e6e6e6; padding: 12px 25px; border-radius: 10px; text-decoration: none; font-size: 15px; border: 1px solid #2a2a4e; transition: 0.3s; }
+        .contact-links a:hover { background: #a855f7; color: #fff; }
+
+        footer { text-align: center; padding: 40px; color: #666; font-size: 14px; border-top: 1px solid #1a1a2e; }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; font-size: 13px; }
+            .hero { flex-direction: column; padding: 40px 20px; }
+            .hero-left h1 { font-size: 35px; }
+            .profile-circle { width: 220px; height: 220px; }
+            .section { padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-<img src="profile.jpg.jpeg" alt="Profile Photo" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid #fff; margin-bottom: 20px; object-fit: cover;">            <h1>U.G. Nimesha Thamali</h1>
-            <p>IT Undergraduate | Web Developer | Database Enthusiast</p>
-        </div>
 
-        <div class="section">
-            <h2>👩‍💻 About Me</h2>
-            <p>Motivated HNDIT undergraduate with skills in PHP, MySQL, HTML, CSS, and JavaScript. Passionate about web development, database management, and building practical projects.</p>
-        </div>
+    <nav>
+        <div class="logo">Nimesha Thamali</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#" class="btn-cv">Download CV</a>
+    </nav>
 
-        <div class="section">
-            <h2>🛠️ Technical Skills</h2>
-            <div class="skills">
-                <span>PHP</span>
-                <span>MySQL</span>
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>JavaScript</span>
-                <span>Bootstrap 5</span>
-                <span>Microsoft Access</span>
-                <span>Git & GitHub</span>
+    <section class="hero" id="home">
+        <div class="hero-left">
+            <span class="badge">Available for internship opportunities</span>
+            <h1>Learning to build <span>useful software</span> every day.</h1>
+            <p>I'm Nimesha Thamali, an IT undergraduate who loves solving problems and building useful software from front to back.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">Explore My Projects →</a>
+                <a href="#" class="btn-secondary">Download CV</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/Nimeshathamali2003" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/nimesha-thamali" target="_blank">LinkedIn</a>
+                <a href="mailto:nimeshathamali151@gmail.com">Email</a>
             </div>
         </div>
+        <div class="hero-right">
+            <div class="profile-circle">
+                <img src="profile.jpg.jpeg" alt="Profile Photo">
+            </div>
+            <div class="badge-floating badge-top">IT Student</div>
+            <div class="badge-floating badge-bottom">03+ Academic Projects</div>
+        </div>
+    </section>
 
-        <div class="section">
-            <h2>📁 Projects</h2>
-            <div class="project">
-                <h3>Library Management System</h3>
-                <p>A web-based system for ATI Tangalle to automate library operations.</p>
-                <a href="https://github.com/Nimeshathamali2003/Library-Management-System" target="_blank">View on GitHub →</a>
-            </div>
-            <div class="project">
-                <h3>Student Registration Management System</h3>
-                <p>A database system for H/ Konkarahena K.V to manage student registrations.</p>
-                <a href="https://github.com/Nimeshathamali2003/Student-Registration-Management-System" target="_blank">View on GitHub →</a>
-            </div>
-            <div class="project">
-                <h3>Vehicle Rental Management System</h3>
-                <p>A relational database for managing customers, vehicles, bookings, and payments.</p>
-                <a href="https://github.com/Nimeshathamali2003/Vehicle-Rental-Management-System" target="_blank">View on GitHub →</a>
-            </div>
+    <section class="section" id="about">
+        <h2>About <span>Me</span></h2>
+        <div class="card">
+            <p>Motivated HNDIT undergraduate with skills in PHP, MySQL, HTML, CSS, and JavaScript. Passionate about web development, database management, and building practical projects. Seeking an internship or entry-level position in the IT industry.</p>
+        </div>
+    </section>
+
+    <section class="section" id="skills">
+        <h2>Technical <span>Skills</span></h2>
+        <div class="skills-grid">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Bootstrap 5</span>
+            <span>Microsoft Access</span>
+            <span>Git & GitHub</span>
+            <span>XAMPP</span>
+            <span>VS Code</span>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <h2>My <span>Projects</span></h2>
+
+        <div class="card">
+            <h3>📚 Library Management System</h3>
+            <p>A web-based system for ATI Tangalle to automate library operations including book management, borrowing, reservations, and fine calculation.</p>
+            <p style="margin-top: 10px;"><strong>Tech:</strong> PHP, MySQL, Bootstrap 5, JavaScript</p>
+            <a href="https://github.com/Nimeshathamali2003/Library-Management-System" target="_blank" style="display: inline-block; margin-top: 10px;">View on GitHub →</a>
         </div>
 
-        <div class="section contact">
-            <h2>📫 Contact Me</h2>
+        <div class="card">
+            <h3>🎓 Student Registration Management System</h3>
+            <p>A database system for H/ Konkarahena K.V to manage student registrations, academic years, classes, and records using Microsoft Access.</p>
+            <p style="margin-top: 10px;"><strong>Tech:</strong> Microsoft Access, DBMS</p>
+            <a href="https://github.com/Nimeshathamali2003/Student-Registration-Management-System" target="_blank" style="display: inline-block; margin-top: 10px;">View on GitHub →</a>
+        </div>
+
+        <div class="card">
+            <h3>🚗 Vehicle Rental Management System</h3>
+            <p>A relational database for managing customers, vehicles, bookings, and payments with proper normalization and ER diagrams.</p>
+            <p style="margin-top: 10px;"><strong>Tech:</strong> MySQL, SQL, ER Diagrams</p>
+            <a href="https://github.com/Nimeshathamali2003/Vehicle-Rental-Management-System" target="_blank" style="display: inline-block; margin-top: 10px;">View on GitHub →</a>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2>Get in <span>Touch</span></h2>
+        <div class="contact-links">
             <a href="mailto:nimeshathamali151@gmail.com">📧 Email</a>
             <a href="https://github.com/Nimeshathamali2003" target="_blank">💻 GitHub</a>
+            <a href="https://www.linkedin.com/in/nimesha-thamali" target="_blank">🔗 LinkedIn</a>
         </div>
-    </div>
+    </section>
+
+    <footer>
+        <p>© 2026 U.G. Nimesha Thamali. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
